@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Guess the letter.">
+  	<meta name="author" content="westtle">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hangman</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/styles/style.min.css">
+</head>
+<body>
+	<main>
+		<div id="hangman">
+			<div class="__header">
+				<!-- H A N G M A N -->
+				<span>&#160;&#160;&#160;</span>
+				<span>&#160;&#160;&#160;</span>
+				<span>&#160;&#160;&#160;</span>
+				<span>&#160;&#160;&#160;</span>
+				<span>&#160;&#160;&#160;</span>
+				<span>&#160;&#160;&#160;</span>
+				<span>&#160;&#160;&#160;</span>
+				<img class="_help" src="assets/Images/help-circle.svg" title="Hint (Can be used 3 times)">
+				<span class="_help-left">x3</span>
+			</div>
+			<div class="__game">
+				<div class="_guess-word"></div>
+				<div class="_key"></div>
+				<div class="_win-lose"></div>
+			</div>
+			<div class="__play-again">
+				<select>
+					<option value="category">Category:</option>
+					<option selected>Animals</option>
+					<option value="fruits">Fruits</option>
+					<option value="vegetables">Vegetables</option>
+					<option value="music-genres">Music (Genres)</option>
+					<option value="music-instruments">Music (Instrument)</option>
+					<option value="color-basic">Colors (Basic)</option>
+					<option value="color-extended">Colors (Extended)</option>
+					<option value="sports">Sports</option>
+					<option value="transportation">Transportation</option>
+					<option value="occupations">Occupations</option>
+					<option value="clothing">Clothing</option>
+					<option value="body-parts">Body Parts</option>
+					<option value="countries">Countries</option>
+					<option value="programming-languages">Programming Languages</option>					
+					<option value="objects">Objects</option>
+					<option value="nouns">Nouns</option>
+					<option value="commons">Common English Word</option>
+				</select>
+				<button>Play Again</button>
+			</div>
+			<div class="__notice">JSON for category: <a href="https://github.com/dariusk/corpora/" target="_blank">https://github.com/dariusk/corpora/</a></div>
+		</div>
+	</main>
+
+	<script type="text/javascript" src="assets/scripts/script.min.js"></script>
+</body>
+</html>
