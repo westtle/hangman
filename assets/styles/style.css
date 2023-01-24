@@ -45,43 +45,41 @@ main {
 	width: 100%;
 }
 
+/* Header / Top Part */
+
 .__header {
-	border: 1px solid var(--border-main);
+	border: var(--border-shorthand);
 	border-bottom: none;
-	border-radius: 3px 3px 0 0;
-	padding: 7px 12px;
+	padding: var(--unit-one) var(--unit-two);
 	cursor: default;
 
 	position: relative;
 }
 
-.__header ._help {
-	width: 21px;
-	padding: 3px;
-	opacity: 0.6;
-	cursor: pointer;
-
-	position: absolute;
-	top: 5px;
-	left: 8px;
-}
-
-.__header ._help:hover {
-	opacity: 0.9 !important;
-}
-
-.__header ._help-left {
-	font-size: 10px;
-	opacity: 0.9;
-	text-decoration: none;
-
-	position: absolute;
-	top: 11px;
-	left: 29px;
-}
-
-.__header span {
+.__header > span {
 	text-decoration: underline;
+}
+
+._help {
+	display: flex;
+	align-items: center;
+
+	position: absolute;
+	top: var(--unit-one);
+	bottom: var(--unit-one);
+	left: var(--unit-two);
+}
+
+.help-icon_ {
+	width: 1.313rem;
+	padding: 0.188rem;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.help-amount_ {
+	font-size: var(--font-size-second);
+	opacity: 0.8;
 }
 
 .__game {
@@ -219,4 +217,16 @@ main {
 ._win-lose {
 	position: absolute;
 	top: 12px;
+}
+
+/* Media Query */
+
+@media (hover: hover) {
+	.help-icon_ {
+		opacity: 0.6;
+	}
+
+	.help-icon_:hover {
+		opacity: 0.8;
+	}
 }
