@@ -169,15 +169,13 @@ main {
 	cursor: pointer;
 }
 
-.__notice {
-	color: var(--color-main);
-	padding: 0 12px;
-	margin-top: 9.715px;
-	font-size: 11px;
-}
+/* Notice / Link */
 
-.__notice a {
-	font-size: 11px;
+.__notice {
+	margin-top: var(--unit-two);
+	padding: 0 var(--unit-one);
+	font-size: var(--font-size-second);
+	word-wrap: break-word;
 }
 
 /* Extra */
