@@ -82,51 +82,56 @@ main {
 	opacity: 0.8;
 }
 
+/* Game / Keyboard / Middle Part */
+
 .__game {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid var(--border-main);
-	height: 280px;
-	padding: 0 8px;
+	border: var(--border-shorthand);
+	padding: var(--unit-one) var(--unit-two);
 
 	position: relative;
 }
 
-.__game ._guess-word {
+._guess-word {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 	margin: 30px 0 25px 0;
 }
 
-.__game ._guess-word span {
-	border-bottom: 1px solid var(--color-main);
-	margin: 0 5px;
+._guess-word span {
+	border-bottom: var(--border-shorthand);
+	margin: 3px 5px;
 	padding: 2px 8px;
 	cursor: default;
-	line-height: 24px;
 }
 
-.__game ._key {
+._key {
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
+	margin-bottom: 25px;
 }
 
-.__game ._key span {
-	background: none;
-	border: 1px solid var(--border-main);
+._key span {
+	border: var(--border-shorthand);
 	margin: 2px;
 	padding: 7px 12px;
 	font-size: var(--font-size-button);
 	cursor: pointer;
 }
 
-.__game ._key span:hover {
-	background: var(--button-hover-backround);
-	color: var(--button-hover-color);
+._key span:nth-child(38) {
+	grid-column: span 2;
 }
 
-.__game ._key span:nth-child(38) {
-	grid-column: span 2;
+._win-lose {
+	font-size: var(--font-size-second);
+
+	position: absolute;
+	top: 0;
 }
 
 .__play-again {
@@ -214,11 +219,6 @@ main {
 	cursor: default !important;
 }
 
-._win-lose {
-	position: absolute;
-	top: 12px;
-}
-
 /* Media Query */
 
 @media (hover: hover) {
@@ -228,5 +228,36 @@ main {
 
 	.help-icon_:hover {
 		opacity: 0.8;
+	}
+
+	._key span:hover {
+		color: var(--button-hover-color);
+		background: var(--button-hover-backround);
+	}
+}
+
+/* Font Size */
+@media (max-width: 30rem) { /* 480px */
+	html {
+		font-size: calc(1rem - 10%);
+	}
+}
+/* -------- */
+
+@media (max-width: 30rem) { /* 480px */
+	._key {
+		grid-template-columns: repeat(8, 1fr);
+	}
+}
+
+@media (max-width: 380px) { /* 380px */
+	._key {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+@media (max-width: 250px) { /* 250px */
+	._key {
+		grid-template-columns: repeat(4, 1fr);
 	}
 }
