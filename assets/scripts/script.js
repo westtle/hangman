@@ -6,7 +6,6 @@ let helpAmount = 3;
 const keyboardLayout = "QWERTYUIOPASDFGHJKL.ZXCVBNM&".split("");
 
 // HTML.
-const header = document.querySelector(".__header");
 const losingLetterHTML = document.querySelector(".__header ._losing-letters");
 const helpButton = document.querySelector(".__header .help-icon_");
 
@@ -225,7 +224,7 @@ function getRandomLetter() {
 
 // Fetch category from local.
 async function getWord(category) {
-    const response = await fetch("./assets/categories.json");
+    const response = await fetch("./assets/categories.min.json");
     const data = await response.json();
 
     const randomIndex = Math.floor(Math.random() * data[category].length);
