@@ -36,7 +36,7 @@ main {
 	justify-content: center;
 	align-items: center;
 	height: calc(100% - 9vh);
-	max-width: 600px;
+	max-width: 37.5rem;
 	margin: 4.5vh auto;
 	text-align: center;
 }
@@ -59,8 +59,8 @@ main {
 ._losing-letters > span {
 	display: inline-block;
 	border-bottom: var(--border-shorthand);
-	margin-bottom: -1px;
-	width: 18px;
+	margin-bottom: -0.063rem;
+	width: 1.125rem;
 }
 
 ._help {
@@ -102,26 +102,26 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	margin: 30px 0 25px 0;
+	margin: 1.875rem 0 1.875rem 0;
 }
 
 ._guess-word span {
 	border-bottom: var(--border-shorthand);
-	margin: 3px 5px;
-	width: 22px;
+	margin: 0.188rem 0.313rem;
+	width: 1.375rem;
 	cursor: default;
 }
 
 ._key {
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
-	margin-bottom: 25px;
+	margin-bottom: 1.875rem;
 }
 
 ._key span {
 	border: var(--border-shorthand);
-	margin: 2px;
-	padding: 7px 12px;
+	margin: 0.125rem;
+	padding: var(--unit-one) var(--unit-two);
 	font-size: var(--font-size-button);
 	cursor: pointer;
 }
@@ -134,7 +134,7 @@ main {
 	font-weight: bold;
 
 	position: absolute;
-	top: 12px;
+	top: var(--unit-two);
 }
 
 /* Play Again / Bottom Part */
@@ -249,7 +249,7 @@ main {
 	}
 }
 
-@media (max-width: 280px) { /* 280px */
+@media (max-width: 17.5rem) { /* 280px */
 	._key {
 		grid-template-columns: repeat(3, 1fr);
 	}
