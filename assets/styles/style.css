@@ -184,16 +184,16 @@ main {
 
 /* Extra */
 
-.clicked_ {
-	opacity: 0.7;
+[data-clicked="clicked"] {
+	opacity: 0.7;	
 }
 
-.clicked-wrong_ {
+[data-clicked="wrong"] {
 	color: #FD5E5E !important;
 	opacity: 0.7;
 }
 
-.clicked-hint_ {
+[data-clicked="hint"] {
 	color: #e1f601;
 	opacity: 0.7;
 }
@@ -215,20 +215,20 @@ main {
 		background: var(--button-hover-backround);
 	}
 
-	.clicked_:hover,
-	.clicked-wrong_:hover,
-	.clicked-hint_:hover {
+	[data-clicked="clicked"]:hover,
+	[data-clicked="wrong"]:hover,
+	[data-clicked="hint"]:hover {
 		background: none !important;
 		color: var(--color-main) !important;
 		opacity: 0.7 !important;
 		cursor: default !important;
 	}
 
-	.clicked-wrong_:hover {
+	[data-clicked="wrong"]:hover {
 		color: #FD5E5E !important;
 	}
 
-	.clicked-hint_:hover {
+	[data-clicked="hint"]:hover {
 		color: #e1f601 !important;
 	}
 }

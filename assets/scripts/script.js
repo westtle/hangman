@@ -42,6 +42,7 @@ function loadKeyboard() {
     keyboardLayout.forEach(key => {
         let keySpan = document.createElement("span");
         keySpan.innerText = key;
+        keySpan.dataset.clicked = "false";
         keyboardHTML.append(keySpan);
         keySpan.addEventListener("click", keyClick);
     });
@@ -56,7 +57,7 @@ function keyClick(helpLetter) {
 
         word.split("").forEach((letter, index) => {
             if (keyClicked == letter) {
-                this.classList.add("clicked_");
+                this.dataset.clicked = "clicked";
                 wordToGuessHTML.children[index].innerHTML = `${letter}`;
             };
         });
@@ -74,7 +75,7 @@ function keyClick(helpLetter) {
                 wordToGuessHTML.children[index].removeEventListener("click", keyClick);
                 Array.from(keyboardHTML.children).forEach(key => {
                     if (key.innerText == helpLetter) {
-                        key.classList.add("clicked-hint_");
+                        key.dataset.clicked = "hint";
                         key.removeEventListener("click", keyClick);
                     };
                 });
@@ -113,7 +114,7 @@ function loseCheck(keyClicked, el) {
         wrongChoices++;
         losingletter();
 
-        el.classList.add("clicked-wrong_");
+        el.dataset.clicked = "wrong";
     };
 
     if (wrongChoices == 7) {
