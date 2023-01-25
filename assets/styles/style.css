@@ -178,6 +178,7 @@ main {
 	margin-top: var(--unit-two);
 	padding: 0 var(--unit-one);
 	font-size: var(--font-size-second);
+	line-height: 1.1;
 	word-wrap: break-word;
 }
 
