@@ -131,7 +131,7 @@ function loseCheck(keyClicked, el) {
     };
 };
 
-function restartGame() {
+function playAgain() {
     selectedCategory = categorySelect.value.toLowerCase();
 
     if (selectedCategory == "category") {
@@ -227,7 +227,7 @@ async function getWord(category) {
 };
 
 helpButton.addEventListener("click", help);
-playButton.addEventListener("click", restartGame);
+playButton.addEventListener("click", playAgain);
 document.addEventListener("keydown", (e) => {
     keyboardLayout.forEach((key, index) => {
         if (e.key == key.toLowerCase()) {
