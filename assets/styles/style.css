@@ -128,7 +128,9 @@ main {
 }
 
 ._win-lose {
-	font-size: var(--font-size-second);
+	margin: var(--font-size-second) 0;
+	font-size: var(--font-size-button);
+	font-weight: bold;
 
 	position: absolute;
 	top: 0;

@@ -111,7 +111,7 @@ function loseCheck(keyClicked, el) {
         el.classList.add("clicked-wrong_");
     };
 
-    if (wrongChoices === 7) {
+    if (wrongChoices == 7) {
 
         // If lose, show the remaining letters.
         Array.from(wordToGuessHTML.children).forEach((e, index) => {
@@ -127,8 +127,7 @@ function loseCheck(keyClicked, el) {
         Array.from(keyboardHTML.children).forEach(key => key.removeEventListener("click", keyClick));
         helpButton.removeEventListener("click", help);
 
-        winLoseHTML.innerHTML = "<h3>You lose!</h3>";
-        winLoseHTML.style.display = "inline";
+        winLoseHTML.innerText = "You lose!";
     };
 };
 
