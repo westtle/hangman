@@ -51,8 +51,8 @@ function keyClick(helpLetter) {
 
         word.split("").forEach((letter, index) => {
             if (keyClicked == letter) {
-                this.classList.add("clicked");
-                wordToGuessHTML.children[index].innerHTML = `&nbsp;${letter}`;
+                this.classList.add("clicked_");
+                wordToGuessHTML.children[index].innerHTML = `${letter}`;
             };
         });
 
@@ -65,7 +65,7 @@ function keyClick(helpLetter) {
         // Add the helpLetter to HTML & make the key seems like it's already clicked.
         word.split("").forEach((letter, index) => {
             if (keyClicked == letter) {
-                wordToGuessHTML.children[index].innerHTML = `&nbsp;${letter}`;
+                wordToGuessHTML.children[index].innerHTML = `${letter}`;
                 wordToGuessHTML.children[index].removeEventListener("click", keyClick);
                 Array.from(keyboardHTML.children).forEach(key => {
                     if (key.innerText == helpLetter) {
@@ -108,7 +108,7 @@ function loseCheck(keyClicked, el) {
         wrongChoices++;
         losingletter();
 
-        el.classList.add("clicked-wrong");
+        el.classList.add("clicked-wrong_");
     };
 
     if (wrongChoices === 7) {

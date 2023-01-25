@@ -180,25 +180,25 @@ main {
 
 /* Extra */
 
-.clicked {
+.clicked_ {
 	opacity: 0.7;
 }
 
-.clicked:hover {
+.clicked_:hover {
 	background: none !important;
 	color: var(--color-main) !important;
 	opacity: 0.7 !important;
 	cursor: default !important;
 }
 
-.clicked-wrong {
-	color: rgba(255, 0, 0, 0.9) !important;
+.clicked-wrong_ {
+	color: #FD5E5E !important;
 	opacity: 0.7;
 }
 
-.clicked-wrong:hover {
+.clicked-wrong_:hover {
 	background: none !important;
-	color: rgba(255, 0, 0, 0.9) !important;
+	color: #FD5E5E !important;
 	opacity: 0.7 !important;
 	cursor: default !important;
 }
