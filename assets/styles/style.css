@@ -123,7 +123,7 @@ main {
 	cursor: pointer;
 }
 
-._key span:nth-child(38) {
+._key span:nth-child(28) {
 	grid-column: span 2;
 }
 
@@ -233,28 +233,20 @@ main {
 	}
 }
 
-/* Font Size */
 @media (max-width: 30rem) { /* 480px */
+	/* Font Size */
 	html {
 		font-size: calc(1rem - 10%);
 	}
-}
-/* -------- */
+	/* -------- */
 
-@media (max-width: 30rem) { /* 480px */
 	._key {
-		grid-template-columns: repeat(8, 1fr);
+		grid-template-columns: repeat(6, 1fr);
 	}
 }
 
-@media (max-width: 380px) { /* 380px */
+@media (max-width: 280px) { /* 280px */
 	._key {
-		grid-template-columns: repeat(5, 1fr);
-	}
-}
-
-@media (max-width: 250px) { /* 250px */
-	._key {
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 	}
 }

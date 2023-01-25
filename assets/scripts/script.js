@@ -3,7 +3,7 @@ let selectedCategory = "animals";
 let wrongChoices = 0;
 let helpAmount = 3;
 
-const keyboardLayout = "1234567890QWERTYUIOPASDFGHJKL-ZXCVBNM.&".split("");
+const keyboardLayout = "QWERTYUIOPASDFGHJKL-ZXCVBNM.&".split("");
 
 // HTML.
 const header = document.querySelector(".__header");
