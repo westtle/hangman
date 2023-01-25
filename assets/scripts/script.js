@@ -7,13 +7,13 @@ const keyboardLayout = "1234567890QWERTYUIOPASDFGHJKL-ZXCVBNM.&".split("");
 
 // HTML.
 const header = document.querySelector(".__header");
-const helpButton = document.querySelector(".__header ._help");
+const helpButton = document.querySelector(".__header .help-icon_");
 
-const wordToGuessDiv = document.querySelector(".__game ._guess-word");
-const keyboardDiv = document.querySelector(".__game ._key");
-const winLoseDiv = document.querySelector(".__game ._win-lose");
+const wordToGuessHTML = document.querySelector(".__game ._guess-word");
+const keyboardHTML = document.querySelector(".__game ._key");
+const winLoseHTML = document.querySelector(".__game ._win-lose");
 
-const categorySelector = document.querySelector(".__play-again select");
+const categorySelect = document.querySelector(".__play-again select");
 const playButton = document.querySelector(".__play-again button");
 
 async function loadWordToGuess() {
@@ -22,14 +22,14 @@ async function loadWordToGuess() {
     word.split("").forEach(letter => {
         let letterSpan = document.createElement("span");
 
+        // If it is an empty space (space bar), do the first if.
         if (letter == " ") {
-            letterSpan.innerText = " "; // Somehow the "_" is wrapping well if I did this.
             letterSpan.style.border = "none";
         } else {
             letterSpan.innerHTML = "&nbsp;&nbsp;&nbsp;";
         };
 
-        wordToGuessDiv.append(letterSpan);
+        wordToGuessHTML.append(letterSpan);
     });
 };
 
@@ -37,7 +37,7 @@ function loadKeyboard() {
     keyboardLayout.forEach(key => {
         let keySpan = document.createElement("span");
         keySpan.innerText = key;
-        keyboardDiv.append(keySpan);
+        keyboardHTML.append(keySpan);
         keySpan.addEventListener("click", keyClick);
     });
 };
@@ -52,7 +52,7 @@ function keyClick(helpLetter) {
         word.split("").forEach((letter, index) => {
             if (keyClicked == letter) {
                 this.classList.add("clicked");
-                wordToGuessDiv.children[index].innerHTML = `&nbsp;${letter}`;
+                wordToGuessHTML.children[index].innerHTML = `&nbsp;${letter}`;
             };
         });
 
@@ -65,9 +65,9 @@ function keyClick(helpLetter) {
         // Add the helpLetter to HTML & make the key seems like it's already clicked.
         word.split("").forEach((letter, index) => {
             if (keyClicked == letter) {
-                wordToGuessDiv.children[index].innerHTML = `&nbsp;${letter}`;
-                wordToGuessDiv.children[index].removeEventListener("click", keyClick);
-                Array.from(keyboardDiv.children).forEach(key => {
+                wordToGuessHTML.children[index].innerHTML = `&nbsp;${letter}`;
+                wordToGuessHTML.children[index].removeEventListener("click", keyClick);
+                Array.from(keyboardHTML.children).forEach(key => {
                     if (key.innerText == helpLetter) {
                         key.classList.add("clicked-hint");
                         key.removeEventListener("click", keyClick);
@@ -84,7 +84,7 @@ function keyClick(helpLetter) {
 function winCheck(keyClicked) {
     let correctLetter = "";
 
-    Array.from(wordToGuessDiv.children).forEach(e => {
+    Array.from(wordToGuessHTML.children).forEach(e => {
         if (e !== keyClicked) {
             correctLetter += e.innerText.split("")[1];
         };
@@ -93,11 +93,11 @@ function winCheck(keyClicked) {
     correctLetter = correctLetter.replace(/undefined/g, " "); // undefined is the empty space / blank letter.
     
     if (correctLetter === word) {
-        Array.from(keyboardDiv.children).forEach(key => key.removeEventListener("click", keyClick));
+        Array.from(keyboardHTML.children).forEach(key => key.removeEventListener("click", keyClick));
         helpButton.removeEventListener("click", help);
 
-        winLoseDiv.innerHTML = "<h3>You win!</h3>";
-        winLoseDiv.style.display = "inline";
+        winLoseHTML.innerHTML = "<h3>You win!</h3>";
+        winLoseHTML.style.display = "inline";
     };
 };
 
@@ -114,7 +114,7 @@ function loseCheck(keyClicked, el) {
     if (wrongChoices === 7) {
 
         // If lose, show the remaining letters.
-        Array.from(wordToGuessDiv.children).forEach((e, index) => {
+        Array.from(wordToGuessHTML.children).forEach((e, index) => {
             if (e.innerText == "   ") {
                 e.style.fontWeight = "bold";
                 e.style.fontStyle = "italic";
@@ -124,16 +124,16 @@ function loseCheck(keyClicked, el) {
         });
 
         // Remove event listener from all key.
-        Array.from(keyboardDiv.children).forEach(key => key.removeEventListener("click", keyClick));
+        Array.from(keyboardHTML.children).forEach(key => key.removeEventListener("click", keyClick));
         helpButton.removeEventListener("click", help);
 
-        winLoseDiv.innerHTML = "<h3>You lose!</h3>";
-        winLoseDiv.style.display = "inline";
+        winLoseHTML.innerHTML = "<h3>You lose!</h3>";
+        winLoseHTML.style.display = "inline";
     };
 };
 
 function restartGame() {
-    selectedCategory = categorySelector.value.toLowerCase();
+    selectedCategory = categorySelect.value.toLowerCase();
 
     if (selectedCategory == "category") {
         return;
@@ -151,9 +151,9 @@ function restartGame() {
         e.innerHTML = "&#160;&#160;&#160;"
     });
 
-    wordToGuessDiv.innerText = "";
-    keyboardDiv.innerText = "";
-    winLoseDiv.style.display = "none";
+    wordToGuessHTML.innerText = "";
+    keyboardHTML.innerText = "";
+    winLoseHTML.style.display = "none";
 
     helpButton.addEventListener("click", help);
 
@@ -212,7 +212,7 @@ function getRandomLetter() {
     let randomIndex = Math.floor(Math.random() * word.length);
     let randomLetterReturn = word.split("")[randomIndex];
 
-    Array.from(wordToGuessDiv.children).forEach(e => {
+    Array.from(wordToGuessHTML.children).forEach(e => {
         if (randomLetterReturn == e.innerText.split("")[1] || randomLetterReturn == " ") {
             randomLetterReturn = getRandomLetter();
         } else {
@@ -225,10 +225,10 @@ function getRandomLetter() {
 
 // Fetch category from local.
 async function getWord(category) {
-    const response = await fetch("./assets/categories.min.json");
+    const response = await fetch("./assets/categories.json");
     const data = await response.json();
 
-    let randomIndex = Math.floor(Math.random() * data[category].length);
+    const randomIndex = Math.floor(Math.random() * data[category].length);
 
     return data[category][randomIndex].toUpperCase();
 };
@@ -238,7 +238,7 @@ playButton.addEventListener("click", restartGame);
 document.addEventListener("keydown", (e) => {
     keyboardLayout.forEach((key, index) => {
         if (e.key == key.toLowerCase()) {
-            keyboardDiv.children[index].click();
+            keyboardHTML.children[index].click();
         };
     });
 });
