@@ -57,7 +57,10 @@ main {
 }
 
 ._losing-letters > span {
-	text-decoration: underline;
+	display: inline-block;
+	border-bottom: var(--border-shorthand);
+	margin-bottom: -1px;
+	width: 18px;
 }
 
 ._help {
@@ -105,7 +108,7 @@ main {
 ._guess-word span {
 	border-bottom: var(--border-shorthand);
 	margin: 3px 5px;
-	padding: 2px 6px;
+	width: 22px;
 	cursor: default;
 }
 

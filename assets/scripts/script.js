@@ -163,7 +163,7 @@ function playAgain() {
 function losingletter() {
     let randomIndex = Math.floor(Math.random() * 7);
 
-    if (losingLetterHTML.children[randomIndex].innerText.includes("   ")) {
+    if (losingLetterHTML.children[randomIndex].innerText.includes(" ")) {
         switch (randomIndex) {
             case 0:
                 losingLetterHTML.children[randomIndex].innerText = "H";
