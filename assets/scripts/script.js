@@ -212,7 +212,7 @@ function getRandomLetter() {
     let randomLetterReturn = word.split("")[randomIndex];
 
     Array.from(wordToGuessHTML.children).forEach(e => {
-        if (randomLetterReturn == e.innerText || randomLetterReturn == "") {
+        if (randomLetterReturn == e.innerText || randomLetterReturn == " ") {
             randomLetterReturn = getRandomLetter();
         } else {
             return;
