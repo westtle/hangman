@@ -128,12 +128,10 @@ main {
 }
 
 ._win-lose {
-	margin: var(--font-size-second) 0;
-	font-size: var(--font-size-button);
 	font-weight: bold;
 
 	position: absolute;
-	top: 0;
+	top: 12px;
 }
 
 /* Play Again / Bottom Part */

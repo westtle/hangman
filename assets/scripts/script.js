@@ -98,6 +98,7 @@ function winCheck(keyClicked) {
         helpButton.removeEventListener("click", help);
 
         winLoseHTML.innerHTML = "You win!";
+        winLoseHTML.style.display = "block";
     };
 };
 
@@ -128,6 +129,7 @@ function loseCheck(keyClicked, el) {
         helpButton.removeEventListener("click", help);
 
         winLoseHTML.innerText = "You lose!";
+        winLoseHTML.style.display = "block";
     };
 };
 
