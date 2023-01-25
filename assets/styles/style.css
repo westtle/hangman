@@ -188,35 +188,14 @@ main {
 	opacity: 0.7;
 }
 
-.clicked_:hover {
-	background: none !important;
-	color: var(--color-main) !important;
-	opacity: 0.7 !important;
-	cursor: default !important;
-}
-
 .clicked-wrong_ {
 	color: #FD5E5E !important;
 	opacity: 0.7;
 }
 
-.clicked-wrong_:hover {
-	background: none !important;
-	color: #FD5E5E !important;
-	opacity: 0.7 !important;
-	cursor: default !important;
-}
-
 .clicked-hint_ {
 	color: #e1f601;
 	opacity: 0.7;
-}
-
-.clicked-hint_:hover {
-	background: none !important;
-	color: #e1f601 !important;
-	opacity: 0.7 !important;
-	cursor: default !important;
 }
 
 /* Media Query */
@@ -234,6 +213,23 @@ main {
 	._play-again-button:hover {
 		color: var(--button-hover-color);
 		background: var(--button-hover-backround);
+	}
+
+	.clicked_:hover,
+	.clicked-wrong_:hover,
+	.clicked-hint_:hover {
+		background: none !important;
+		color: var(--color-main) !important;
+		opacity: 0.7 !important;
+		cursor: default !important;
+	}
+
+	.clicked-wrong_:hover {
+		color: #FD5E5E !important;
+	}
+
+	.clicked-hint_:hover {
+		color: #e1f601 !important;
 	}
 }
 
