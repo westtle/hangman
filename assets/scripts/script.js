@@ -1,7 +1,7 @@
 let word;
 let selectedCategory = "animals";
 let wrongChoices = 0;
-let helpLeft = 3;
+let helpAmount = 3;
 
 const keyboardLayout = "1234567890QWERTYUIOPASDFGHJKL-ZXCVBNM.&".split("");
 
@@ -138,11 +138,11 @@ function restartGame() {
     };
 
     wrongChoices = 0;
-    helpLeft = 3;
+    helpAmount = 3;
 
     Array.from(header.children).forEach(e => {
-        if (e.className == "_help-left") {
-            e.innerText = `x${helpLeft}`;
+        if (e.className == "help-amount_") {
+            e.innerText = `x${helpAmount}`;
             return;
         };
 
@@ -195,11 +195,11 @@ function losingletter() {
 function help() {
     let randomLetter = getRandomLetter();
 
-    helpLeft--;
+    helpAmount--;
 
-    document.querySelector(".help-amount_").innerText = `x${helpLeft}`;
+    document.querySelector(".help-amount_").innerText = `x${helpAmount}`;
 
-    if (helpLeft == 0) {
+    if (helpAmount == 0) {
         helpButton.removeEventListener("click", help);
     };
 
