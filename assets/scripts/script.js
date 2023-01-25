@@ -7,6 +7,7 @@ const keyboardLayout = "1234567890QWERTYUIOPASDFGHJKL-ZXCVBNM.&".split("");
 
 // HTML.
 const header = document.querySelector(".__header");
+const losingLetterHTML = document.querySelector(".__header ._losing-letters");
 const helpButton = document.querySelector(".__header .help-icon_");
 
 const wordToGuessHTML = document.querySelector(".__game ._guess-word");
@@ -140,15 +141,9 @@ function restartGame() {
     wrongChoices = 0;
     helpAmount = 3;
 
-    Array.from(header.children).forEach(e => {
-        if (e.className == "help-amount_") {
-            e.innerText = `x${helpAmount}`;
-            return;
-        };
+    Array.from(losingLetterHTML.children).forEach(el => el.innerHTML = "&#160;&#160;&#160;");
 
-        e.innerHTML = "&#160;&#160;&#160;"
-    });
-
+    document.querySelector(".help-amount_").innerText = `x${helpAmount}`;;
     wordToGuessHTML.innerText = "";
     keyboardHTML.innerText = "";
     winLoseHTML.style.display = "none";
@@ -162,28 +157,28 @@ function restartGame() {
 function losingletter() {
     let randomIndex = Math.floor(Math.random() * 7);
 
-    if (header.children[randomIndex].innerText.includes("   ")) {
+    if (losingLetterHTML.children[randomIndex].innerText.includes("   ")) {
         switch (randomIndex) {
             case 0:
-                header.children[randomIndex].innerText = "H";
+                losingLetterHTML.children[randomIndex].innerText = "H";
                 break;
             case 1:
-                header.children[randomIndex].innerText = "A";
+                losingLetterHTML.children[randomIndex].innerText = "A";
                 break;
             case 2:
-                header.children[randomIndex].innerText = "N";
+                losingLetterHTML.children[randomIndex].innerText = "N";
                 break;
             case 3:
-                header.children[randomIndex].innerText = "G";
+                losingLetterHTML.children[randomIndex].innerText = "G";
                 break;
             case 4:
-                header.children[randomIndex].innerText = "M";
+                losingLetterHTML.children[randomIndex].innerText = "M";
                 break;
             case 5:
-                header.children[randomIndex].innerText = "A";
+                losingLetterHTML.children[randomIndex].innerText = "A";
                 break;
             case 6:
-                header.children[randomIndex].innerText = "N";
+                losingLetterHTML.children[randomIndex].innerText = "N";
                 break;
         };
     } else {
