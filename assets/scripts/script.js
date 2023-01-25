@@ -3,7 +3,7 @@ let selectedCategory = "animals";
 let wrongChoices = 0;
 let helpAmount = 3;
 
-const keyboardLayout = "QWERTYUIOPASDFGHJKL-ZXCVBNM.&".split("");
+const keyboardLayout = "QWERTYUIOPASDFGHJKL.ZXCVBNM&".split("");
 
 // HTML.
 const header = document.querySelector(".__header");
@@ -26,6 +26,9 @@ async function loadWordToGuess() {
         // If it is an empty space (space bar), do the first if.
         if (letter == " ") {
             letterSpan.innerHTML = "&nbsp;";
+            letterSpan.style.border = "none";
+        } else if (letter == "-") {
+            letterSpan.innerText = "-";
             letterSpan.style.border = "none";
         } else {
             letterSpan.innerHTML = "&nbsp;&nbsp;&nbsp;";

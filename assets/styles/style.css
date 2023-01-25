@@ -124,7 +124,7 @@ main {
 }
 
 ._key span:nth-child(28) {
-	grid-column: span 2;
+	grid-column: span 3;
 }
 
 ._win-lose {
