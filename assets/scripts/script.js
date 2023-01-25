@@ -25,6 +25,7 @@ async function loadWordToGuess() {
 
         // If it is an empty space (space bar), do the first if.
         if (letter == " ") {
+            letterSpan.innerHTML = "&nbsp;";
             letterSpan.style.border = "none";
         } else {
             letterSpan.innerHTML = "&nbsp;&nbsp;&nbsp;";
@@ -90,9 +91,9 @@ function winCheck(keyClicked) {
             correctLetter += e.innerText;
         };
     });
-
-    correctLetter = correctLetter.replace(/undefined/g, " "); // undefined is the empty space / blank letter.
     
+    correctLetter = correctLetter.replace(/\s/g, " ");
+
     if (correctLetter == word) {
         Array.from(keyboardHTML.children).forEach(key => key.removeEventListener("click", keyClick));
         helpButton.removeEventListener("click", help);
