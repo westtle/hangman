@@ -86,18 +86,17 @@ function winCheck(keyClicked) {
 
     Array.from(wordToGuessHTML.children).forEach(e => {
         if (e !== keyClicked) {
-            correctLetter += e.innerText.split("")[1];
+            correctLetter += e.innerText;
         };
     });
 
     correctLetter = correctLetter.replace(/undefined/g, " "); // undefined is the empty space / blank letter.
     
-    if (correctLetter === word) {
+    if (correctLetter == word) {
         Array.from(keyboardHTML.children).forEach(key => key.removeEventListener("click", keyClick));
         helpButton.removeEventListener("click", help);
 
-        winLoseHTML.innerHTML = "<h3>You win!</h3>";
-        winLoseHTML.style.display = "inline";
+        winLoseHTML.innerHTML = "You win!";
     };
 };
 
@@ -211,8 +210,8 @@ function getRandomLetter() {
     let randomIndex = Math.floor(Math.random() * word.length);
     let randomLetterReturn = word.split("")[randomIndex];
 
-    Array.from(wordToGuessHTML.children).forEach(key => {
-        if (randomLetterReturn == key.innerText || randomLetterReturn == "") {
+    Array.from(wordToGuessHTML.children).forEach(e => {
+        if (randomLetterReturn == e.innerText || randomLetterReturn == "") {
             randomLetterReturn = getRandomLetter();
         } else {
             return;
