@@ -47,6 +47,15 @@ function loadKeyboard() {
     });
 };
 
+async function getWord(category) { // Fetch category from local & return the word.
+    const response = await fetch("./assets/categories.min.json");
+    const data = await response.json();
+
+    const randomIndex = Math.floor(Math.random() * data[category].length);
+
+    return data[category][randomIndex].toUpperCase();
+};
+
 function keyClick(helpLetter) {
     let keyClicked;
 
@@ -192,7 +201,6 @@ function losingletter() {
     };
 };
 
-// Help function.
 function help() {
     let randomLetter = getRandomLetter();
 
@@ -220,16 +228,6 @@ function getRandomLetter() {
     });
 
     return randomLetterReturn;
-};
-
-// Fetch category from local.
-async function getWord(category) {
-    const response = await fetch("./assets/categories.min.json");
-    const data = await response.json();
-
-    const randomIndex = Math.floor(Math.random() * data[category].length);
-
-    return data[category][randomIndex].toUpperCase();
 };
 
 helpButton.addEventListener("click", help);
