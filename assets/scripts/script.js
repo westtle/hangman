@@ -69,7 +69,7 @@ function keyClick(helpLetter) {
                 wordToGuessHTML.children[index].removeEventListener("click", keyClick);
                 Array.from(keyboardHTML.children).forEach(key => {
                     if (key.innerText == helpLetter) {
-                        key.classList.add("clicked-hint");
+                        key.classList.add("clicked-hint_");
                         key.removeEventListener("click", keyClick);
                     };
                 });
@@ -199,7 +199,7 @@ function help() {
 
     helpLeft--;
 
-    document.querySelector("._help-left").innerText = `x${helpLeft}`;
+    document.querySelector(".help-amount_").innerText = `x${helpLeft}`;
 
     if (helpLeft == 0) {
         helpButton.removeEventListener("click", help);
@@ -212,8 +212,8 @@ function getRandomLetter() {
     let randomIndex = Math.floor(Math.random() * word.length);
     let randomLetterReturn = word.split("")[randomIndex];
 
-    Array.from(wordToGuessHTML.children).forEach(e => {
-        if (randomLetterReturn == e.innerText.split("")[1] || randomLetterReturn == " ") {
+    Array.from(wordToGuessHTML.children).forEach(key => {
+        if (randomLetterReturn == key.innerText || randomLetterReturn == "") {
             randomLetterReturn = getRandomLetter();
         } else {
             return;
