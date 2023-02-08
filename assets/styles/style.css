@@ -250,4 +250,17 @@ main {
 	._key {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
+	.__play-again {
+		flex-direction: column;
+	}
+
+	._category,
+	._play-again-button {
+		width: 100%;
+	}
+
+	._play-again-button {
+		border-left: var(--border-shorthand);
+	}
 }
